@@ -8,6 +8,12 @@
 - name: Start and enable nginx service
   service: name=nginx state=started enabled=yes
 
+- name: Generate a new configuration for Nginx
+  template:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+    owner: wilfred
+
 - name: Remove default nginx configuration
   file: name=/etc/nginx/sites-enabled/default state=absent
 

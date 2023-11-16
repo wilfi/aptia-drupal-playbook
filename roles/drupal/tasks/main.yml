@@ -15,14 +15,20 @@
 
 - name: Install Mysql Repo
   yum:
-    name: https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm
+    name: http://repo.mysql.com/mysql57-community-release-el7-10.noarch.rpm
     state: present
 
 - name: Enable and install mysql
   yum:
-    enablerepo: "mysql80-community"
     name:
       - mysql-community-server
+    state: present
+
+- name: Start MySQL
+  service:
+    name: mysqld
+    state: started
+    enabled: yes
 
 - name: Create Drupal install path
   file:
