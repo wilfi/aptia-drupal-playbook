@@ -23,7 +23,7 @@
     state: latest
 
 - name: Start and enable service
-  service: name=php8.1-fpm state=started enabled=yes
+  service: name=php-fpm state=started enabled=yes
 
-- name: Restart php8.1-fpm
-  service: name=php8.1-fpm state=restarted
+- name: Restart php-fpm
+  service: name=php-fpm state=restarted
