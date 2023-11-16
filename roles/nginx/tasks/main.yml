@@ -15,8 +15,8 @@
   template:
     src: drupal.conf
     dest: /etc/nginx/sites-available/drupal.conf
-    owner: root
-    group: root
+    owner: wilfred
+#    group: root
   vars:
     root: "{{ drupal_site_path }}/drupal/web"
 
