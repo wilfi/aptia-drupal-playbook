@@ -4,3 +4,26 @@
   yum:
     name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
     state: present
+
+- name: Install PHP with necessary extensions
+  yum:
+    enablerepo: "remi,remi-php81"
+    name:
+      - php
+      - php-curl
+      - php-gd
+      - php-cli
+      - php-mysql
+      - php-xml
+      - php-mbstring
+      - php-fpm
+      - php-intl
+      - php-zip
+      - php-xsl
+    state: latest
+
+- name: Start and enable service
+  service: name=php8.1-fpm state=started enabled=yes
+
+- name: Restart php8.1-fpm
+  service: name=php8.1-fpm state=restarted
