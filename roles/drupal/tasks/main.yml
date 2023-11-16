@@ -14,7 +14,10 @@
     dest: /opt/drush
 
 - name: Install MySQL Client
-  package: name=mysql-client state=present
+  yum:
+    name:
+      - mysql-community-server
+    state: present
 
 - name: Create Drupal install path
   file:
