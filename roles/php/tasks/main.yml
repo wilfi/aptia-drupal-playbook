@@ -33,11 +33,11 @@
     state: directory
     recurse: yes
 
-- name: Generate a new configuration for PHP-FPM
-  template:
-    src: www.conf
-    dest: /etc/php-fpm.d/www.conf
-    owner: wilfred
+#- name: Generate a new configuration for PHP-FPM
+#  template:
+#    src: www.conf
+#    dest: /etc/php-fpm.d/www.conf
+#    owner: wilfred
 
 - name: Restart php-fpm
   service: name=php-fpm state=restarted
