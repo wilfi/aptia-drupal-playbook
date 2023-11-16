@@ -1,0 +1,32 @@
+{
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "{{ cloutInitOutputLog }}",
+            "log_group_name": "Cloud_init"
+          },
+          {
+            "file_path": "{{ nginxErrorLog }}",
+            "log_group_name": "Nginx_error_log"
+          },
+          {
+            "file_path": "{{ nginxAccessLog }}",
+            "log_group_name": "Nginx_Access_log"
+          }
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "metrics_collected": {
+      "mem": {
+        "measurement": [
+          "mem_used_percent"
+        ],
+        "metrics_collection_interval": 30
+      }
+    }
+  }
+}
