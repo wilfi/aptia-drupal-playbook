@@ -38,7 +38,7 @@
     recurse: yes
 
 - name: Create Drupal Recommended project
-  shell: composer create-project drupal/recommended-project drupal
+  shell: /usr/local/bin/composer create-project drupal/recommended-project drupal
   become_user: wilfred
   args:
     chdir: "{{ drupal_site_path }}"
@@ -47,15 +47,14 @@
   file:
     path: "{{ drupal_site_path }}/drupal"
     owner: wilfred
-    group: azurevm
     mode: 0777
     state: directory
     recurse: yes
 
 - name: Install Drush and update
   shell: |
-    composer require --dev drush/drush --no-interaction
-    composer update --no-interaction
+    /usr/local/bin/composer require --dev drush/drush --no-interaction
+    /usr/local/bin/composer update --no-interaction
   become_user: wilfred
   args:
     chdir: "{{ drupal_site_path }}/drupal"
