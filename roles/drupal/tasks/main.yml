@@ -33,7 +33,6 @@
   file:
     path: "{{ drupal_site_path }}"
     owner: wilfred
-    group: azurevm
     mode: 0777
     state: directory
     recurse: yes
