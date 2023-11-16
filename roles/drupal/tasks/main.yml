@@ -24,23 +24,23 @@
 - name: Fix permissions
   file:
     path: "{{ drupal_site_path }}"
-    owner: ansible
-    group: ansible
+    owner: wilfred
+    group: azurevm
     mode: 0777
     state: directory
     recurse: yes
 
 - name: Create Drupal Recommended project
   shell: composer create-project drupal/recommended-project drupal
-  become_user: ansible
+  become_user: wilfred
   args:
     chdir: "{{ drupal_site_path }}"
 
 - name: Full permissions for Drupal project
   file:
     path: "{{ drupal_site_path }}/drupal"
-    owner: ansible
-    group: ansible
+    owner: wilfred
+    group: azurevm
     mode: 0777
     state: directory
     recurse: yes
@@ -49,6 +49,6 @@
   shell: |
     composer require --dev drush/drush --no-interaction
     composer update --no-interaction
-  become_user: ansible
+  become_user: wilfred
   args:
     chdir: "{{ drupal_site_path }}/drupal"

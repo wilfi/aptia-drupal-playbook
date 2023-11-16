@@ -8,6 +8,6 @@
 #    - update
 #    - cloudwatch
     - php
-#    - drupal
+    - drupal
 #    - nginx
 
