@@ -13,11 +13,16 @@
     version: "12.1.2"
     dest: /opt/drush
 
-- name: Install MySQL Client
+- name: Install Mysql Repo
   yum:
+    name: https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm
+    state: present
+
+- name: Enable and install mysql
+  yum:
+    enablerepo: "mysql80-community"
     name:
       - mysql-community-server
-    state: present
 
 - name: Create Drupal install path
   file:
